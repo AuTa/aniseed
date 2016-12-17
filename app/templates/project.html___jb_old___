@@ -1,0 +1,48 @@
+{% extends "/layout.html" %}
+
+{% block title %}大料建筑-云{% endblock %}
+
+{% set active_page = id %}
+
+{% block styles %}
+    {{ super() }}
+    <link href="{{ url_for('static', filename='main.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+    <script src="{{ url_for('static', filename='plupload-2.1.8/js/plupload.full.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='qiniu.js') }}"></script>
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+{% endblock %}
+
+
+{% block page_content %}
+    <main class="HolyGrail-content">
+        <div class="Grid-cell">
+            {% from "./_formhelpers.html" import render_field %}
+            <form method="post" action="" id="kana-form" onkeydown="if(event.keyCode==13){return false;}">
+                {{ form.hidden_tag() }}
+                {{ render_field(form.project_name, class_="form-control", with_label=True,
+                                required="required") }}
+                {{ render_field(form.project_name_en, class_="form-control", with_label=True,
+                                required="required") }}
+                {{ render_field(form.project_address, class_="form-control", with_label=True,
+                                required="required") }}
+                {{ render_field(form.project_address_en, class_="form-control", with_label=True,
+                                required="required") }}
+                {{ render_field(form.project_time, class_="form-control", with_label=True,
+                                required="required") }}
+                {{ render_field(form.project_info, class_="form-control", with_label=True,
+                                required="required", rows="15") }}
+                {{ render_field(form.project_info_en, class_="form-control", with_label=True,
+                                required="required", rows="15") }}
+                {{ render_field(form.project_info_submit, class_="form-control",
+                                    required="required") }}
+            </form>
+        </div>
+        <div class="Grid-cell">
+
+        </div>
+    </main>
+{% endblock %}

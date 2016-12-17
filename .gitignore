@@ -1,0 +1,6 @@
+*.pyc
+venv/
+instance/
+.idea/
+*.db
+qiniu.json

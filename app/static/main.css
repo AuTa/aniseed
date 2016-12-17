@@ -1,0 +1,318 @@
+html, body {
+  margin: 0px;
+  padding: 0px;
+  font-size: 14px;
+  font-family: "SF UI Display", ".PingFang SC", "PingFang SC", "Neue Haas Grotesk Text Pro", "Arial Nova", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "游ゴシック", YuGothic, メイリオ, Meiryo, "Segoe UI", "Microsoft JhengHei", "Microsoft YaHei", "Helvetica Neue", "Source Han Sans SC", "Noto Sans CJK SC", "Source Han Sans CN", "Noto Sans SC", "Source Han Sans TC", "Noto Sans CJK TC", "Helvetica", "Hiragino Sans GB", sans-serif;
+}
+
+.HolyGrail {
+  /* display: flex; */
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+header,
+footer {
+  /* flex: 1; */
+  background-color: #1C1C1C;
+  color: #BDC0BA;
+}
+
+.Grid-nav {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  background-color: #1C1C1C;
+  height: 3rem;
+  text-align: center;
+  margin: auto 1rem;
+}
+
+.Grid-nav .item {
+font-size: 1.5rem;
+padding: 0 0.5rem;vertical-align: text-bottom;}
+
+.Grid-nav .site {
+width: 4rem;
+font-size: 2rem;
+padding: 0 0.5rem;
+text-align: left;}
+
+a.item:link, a.item:visited {
+  text-decoration:none;
+  color: #BDC0BA;
+}
+
+a.item:hover, a.item:active, a.item.hover, a.item.active {
+  color: #000000;
+}
+
+
+.HolyGrail-body {
+  display: flex;
+  flex: 1;
+}
+
+.HolyGrail-content {
+  display: flex;
+  flex: 1;
+  /* flex-direction: column; */
+}
+
+.HolyGrail-nav, .HolyGrail-ads, header .Grid-cell {
+  flex: 0 0 20%;
+}
+
+.HolyGrail-nav {
+  /* 导航放到最左边 */
+  order: -1;
+  display: flex;
+  flex-direction: column;
+}
+
+.Grid {
+  display: flex;
+}
+
+.Grid.column {
+  flex-direction: column;
+}
+
+.Grid-cell {
+  flex: 1;
+}
+
+.Grid-cell.u-full {
+  flex: 0 0 100%;
+}
+
+.Grid-cell.u-1of2 {
+  flex: 0 0 50%;
+}
+
+.Grid-cell.u-1of3 {
+  flex: 0 0 33.3333%;
+}
+
+.Grid-cell.u-1of4 {
+  flex: 0 0 25%;
+}
+
+.Grid-cell.nogrow {
+  flex: 0;
+}
+
+.Table {
+  text-align: center;
+}
+
+.tbody {
+  margin: 0 1rem 1rem 1rem;
+}
+.Table .caption {
+  margin: 1rem 1rem 0 1.5rem;
+  font-size: 1.5rem;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.sel-all {
+  min-width: 0.5rem;
+  min-height: 0.5rem;
+}
+
+.sel-but {
+  min-width: 0.5rem;
+  min-height: 0.5rem;
+}
+
+.kana {/* height: 3rem; */}
+
+.romaji {
+  font-size: 1rem;
+  background-color: #eee;
+}
+
+.kanamoji {
+  font-size: 1.5rem;
+}
+
+.border{
+  border-style: solid;
+  border-width: thin;
+  border-color: #ccc;
+}
+.border-top{
+  border-top-style: solid;
+  border-width: thin;
+  border-color: #ccc;
+}
+.border-right {
+  border-right-style: solid;
+  border-width: thin;
+  border-color: #ccc;
+}
+.border-bottom {
+  border-bottom-style: solid;
+  border-width: thin;
+  border-color: #ccc;
+}
+.border-left {
+  border-left-style: solid;
+  border-width: thin;
+  border-color: #ccc;
+}
+
+.selected {
+  background-color: #A5DEE4;/* 瓶覗 */
+}
+.selected .romaji {
+  background-color: #81C7D4;/* 水 */
+}
+.hover {
+  background-color: #F8C3CD;/* 退红 */
+}
+.hover .romaji {
+  background: #FEDFE1;/* 樱 */
+}
+.sel-but {
+}
+.selected.hover {
+  background: #33A6B8;
+}
+.selected.hover .romaji {
+  background: #6699A1;/* 錆浅葱 */
+}
+
+
+.test-board {
+  text-align: center;
+  margin: 3rem 0;
+}
+
+.test-board .panel-header {
+  min-height: 3rem;
+  flex: 0;
+  background-color: #FCFAF2;/* 白练 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.test-board .panel-body {
+  /* display: flex; */
+  align-items: center;
+  justify-content: center;
+}
+
+.test-board .panel-footer {
+  flex: 0;
+  min-height: 3rem;
+  background-color: #FCFAF2;/* 白练 */
+  align-items: stretch;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.prev-kana {
+  font-size: 6rem;
+}
+
+.cur-kana {
+  font-size: 9rem;
+}
+
+.next-kana {
+  font-size: 6rem;
+}
+
+#kana-form {
+  display: flex;
+  flex: 1;
+  margin: 0;
+  align-items: stretch;
+  flex-direction: column;
+}
+
+.form-control {
+  flex: 1;
+  border: 0;
+  background-color: #FCFAF2;/* 白练 */
+  /* text-align: center; */
+  font-size: 1rem;
+  /* height: 3rem; */
+  width: 0;
+}
+
+.wrong {
+  background-color: #F8C3CD !important;/* 退红 */
+  color: #CB1B45;/* 红 */
+}
+
+.right {
+  background-color: #A8D8B9 !important;/* 白绿 */
+  color: #1B813E;/* 青竹 */
+}
+
+#prev_wrong {
+  color: #CB1B45;/* 红 */
+  text-decoration: underline;
+  font-style: italic;
+  padding: 0 0.5rem;
+}
+
+#prev_right {
+  color: #1B813E;/* 青竹 */
+  padding: 0 0.5rem;
+}
+
+.Tabs {
+}
+
+.tabHead {
+  font-size: 1.5rem;
+  flex: none;
+}
+
+.tabHead div {
+  padding: 0.2rem 0.5rem;
+}
+
+.tabHead .active {
+  border-style: solid solid none solid;
+  border-width: thin;
+  border-color: #ccc;
+}
+
+.tabContent  > div {
+  display: none;
+  margin: 1rem 0;
+}
+.tabContent .active {
+  display: flex;
+}
+
+.tab-kana {
+  flex: 0 0 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: #f9f9f9 solid thin;
+}
+
+/* 小屏幕（平板，大于等于 768px） */
+@media (min-width: @screen-sm-min) { ... }
+
+/* 中等屏幕（桌面显示器，大于等于 992px） */
+@media (min-width: @screen-md-min) { ... }
+
+/* 大屏幕（大桌面显示器，大于等于 1200px） */
+@media (min-width: @screen-lg-min) {
+
+ }

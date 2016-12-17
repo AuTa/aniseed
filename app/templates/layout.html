@@ -1,0 +1,61 @@
+<html>
+<head>
+{% block head %}
+  <meta charset="utf-8">
+  <title>{% block title %}{% endblock %}</title>
+  {% block styles %}
+  {% endblock %}
+  <script src="{{ url_for('static', filename='jquery-2.2.0.min.js') }}"></script>
+  <script>$SCRIPT_ROOT = {{ request.script_root|tojson|safe }};</script>
+  <link rel="shortcut icon" href="{{ url_for('static', filename = 'favicon.ico') }}"
+        type="image/x-icon">
+  <link rel="icon" href="{{ url_for('static', filename = 'favicon.ico') }}"
+        type="image/x-icon">
+{% endblock %}
+</head>
+<body class="HolyGrail">
+
+{% block content %}
+<div class="HolyGrail-body">
+    {% for message in get_flashed_messages() %}
+    <div class="alert alert-warning">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{ message }}
+    </div>
+    {% endfor %}
+
+    {% block page_content %}{% endblock %}
+    {% block page_nav %}
+        {% set navigation_bar = [
+        ('/', 'index', '大料建筑'),
+        ] -%}
+        {% set x = 1 %}
+        {% for i in project %}
+            {% if i['project_name'] %}
+            {% set navigation_item = ("/{0}".format(x), x, i['project_name']) %}
+            {{ navigation_bar.append(navigation_item)|default("", True) }}
+            {% set x = x + 1 %}
+
+            {% endif %}
+        {% endfor %}
+        {% set project_len = project|length %}
+        {{ navigation_bar.append(("/{0}".format(project_len), project_len, '添加'))|default("", True) }}
+        {% set active_page = active_page|default('index') -%}
+        <nav class="HolyGrail-nav" id="navigation">
+            {% for href, id, caption in navigation_bar -%}
+            <a class="item
+            {%- if id == 'index' %} site{% endif -%}
+            {%- if id == active_page %} active{% endif -%}" href="{{ href|e }}">
+              {{- caption|e -}}
+            </a>
+            {%- endfor %}
+        </nav>
+    {% endblock %}
+</div>
+
+{% endblock %}
+{% block scripts %}
+{{ moment.include_moment() }}
+{% endblock %}
+</body>
+</html>
